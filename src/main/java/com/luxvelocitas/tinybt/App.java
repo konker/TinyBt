@@ -19,6 +19,7 @@ public class App {
         // Set up the behaviour tree
         INode root = new Root(
             new Selector(
+                new ConditionVar("barBool"),
                 new FailureCondition(),
                 new Invert(
                     new Repeat(-1,
@@ -39,6 +40,7 @@ public class App {
         // Set up a context object
         DataBundle context = new DataBundle();
         context.putLong("fooMs", 1500);
+        context.putBoolean("barBool", false);
 
         // Execute the tree
         IExecutor executor = new SimpleExecutor(logger);
