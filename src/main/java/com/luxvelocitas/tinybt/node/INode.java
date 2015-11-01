@@ -1,5 +1,6 @@
 package com.luxvelocitas.tinybt.node;
 
+import com.luxvelocitas.datautils.DataBundle;
 import org.slf4j.Logger;
 
 /**
@@ -19,7 +20,7 @@ import org.slf4j.Logger;
  * nodes based on ticks, or single units of abstract time.
  *
 */
-public interface INode<T> {
+public interface INode {
     void init();
     void reset();
 
@@ -29,9 +30,9 @@ public interface INode<T> {
      * @param context  The execution context for the node
      * @return  The node's state after completing what its task
      */
-    NodeState tick(Logger logger, T context);
+    NodeState tick(Logger logger, DataBundle context);
 
-    void addChild(INode<T> child);
+    void addChild(INode child);
 
     NodeState getState();
 

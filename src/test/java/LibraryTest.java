@@ -17,11 +17,11 @@ public class LibraryTest {
         Logger logger = LoggerFactory.getLogger(LibraryTest.class);
 
         logger.info("START");
-        INode<DataBundle> root = new Root<DataBundle>(
-            new Invert<DataBundle>(
-                new Sequence<DataBundle>(
-                    new Wait<DataBundle>(1000),
-                    new Task<DataBundle>() {
+        INode root = new Root(
+            new Invert(
+                new Sequence(
+                    new Wait(1000),
+                    new Task() {
                         @Override
                         public NodeState tick(Logger logger, DataBundle context) {
                             logger.info("TASK!");
@@ -34,7 +34,7 @@ public class LibraryTest {
 
         DataBundle context = new DataBundle();
 
-        IExecutor<DataBundle> executor = new SimpleExecutor(logger);
+        IExecutor executor = new SimpleExecutor(logger);
         executor.execute(root, context);
         logger.info("END");
         assertTrue("testTinyBtExperimental", true);

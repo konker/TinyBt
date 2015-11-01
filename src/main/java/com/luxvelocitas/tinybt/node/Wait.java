@@ -1,11 +1,12 @@
 package com.luxvelocitas.tinybt.node;
 
 
+import com.luxvelocitas.datautils.DataBundle;
 import org.slf4j.Logger;
 
 import java.util.Date;
 
-public class Wait<T> extends AbstractNode<T> implements INode<T> {
+public class Wait extends AbstractNode implements INode {
     protected final long mWaitMs;
     protected long mStartTime;
 
@@ -20,7 +21,7 @@ public class Wait<T> extends AbstractNode<T> implements INode<T> {
     }
 
     @Override
-    public NodeState tick(Logger logger, T context) {
+    public NodeState tick(Logger logger, DataBundle context) {
         long curTime = (new Date()).getTime();
         if ((curTime - mStartTime) >= mWaitMs) {
             return success();

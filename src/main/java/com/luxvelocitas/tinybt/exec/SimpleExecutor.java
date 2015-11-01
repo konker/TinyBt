@@ -7,7 +7,7 @@ import com.luxvelocitas.tinybt.node.NodeState;
 import org.slf4j.Logger;
 
 
-public class SimpleExecutor implements IExecutor<DataBundle> {
+public class SimpleExecutor implements IExecutor {
     protected final Logger mLogger;
 
     public SimpleExecutor(Logger logger) {
@@ -15,7 +15,7 @@ public class SimpleExecutor implements IExecutor<DataBundle> {
     }
 
     @Override
-    public NodeState execute(INode<DataBundle> node, DataBundle context) {
+    public NodeState execute(INode node, DataBundle context) {
         node.init();
 
         do {

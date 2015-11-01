@@ -1,22 +1,20 @@
 package com.luxvelocitas.tinybt.node;
 
-import org.slf4j.Logger;
-
 import java.util.LinkedList;
 import java.util.List;
 
 
-public abstract class AbstractNode<T> implements INode<T> {
+public abstract class AbstractNode implements INode {
     protected NodeState mState;
-    protected List<INode<T>> mChildren;
+    protected List<INode> mChildren;
     protected int[] mChildrenIndex;
 
     public AbstractNode() {
-        mChildren = new LinkedList<INode<T>>();
+        mChildren = new LinkedList<INode>();
     }
 
-    public AbstractNode(INode<T>... children) {
-        mChildren = new LinkedList<INode<T>>();
+    public AbstractNode(INode... children) {
+        mChildren = new LinkedList<INode>();
         for (int i=0; i<children.length; i++) {
             mChildren.add(children[i]);
         }
@@ -27,7 +25,7 @@ public abstract class AbstractNode<T> implements INode<T> {
         mChildrenIndex = new int[mChildren.size()];
         initIndex();
 
-        for (INode<T> node : mChildren) {
+        for (INode node : mChildren) {
             node.init();
         }
 
@@ -36,7 +34,7 @@ public abstract class AbstractNode<T> implements INode<T> {
 
     @Override
     public void reset() {
-        for (INode<T> node : mChildren) {
+        for (INode node : mChildren) {
             node.reset();
         }
 
@@ -68,7 +66,7 @@ public abstract class AbstractNode<T> implements INode<T> {
     }
 
     @Override
-    public void addChild(INode<T> child) {
+    public void addChild(INode child) {
         mChildren.add(child);
     }
 

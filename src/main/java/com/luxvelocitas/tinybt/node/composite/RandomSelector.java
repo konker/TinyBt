@@ -2,11 +2,10 @@ package com.luxvelocitas.tinybt.node.composite;
 
 import com.luxvelocitas.datautils.Util;
 import com.luxvelocitas.tinybt.node.INode;
-import org.slf4j.Logger;
 
 
-public class RandomSelector<T> extends Selector<T> implements INode<T> {
-    public RandomSelector(INode<T>... children) {
+public class RandomSelector extends Selector implements INode {
+    public RandomSelector(INode... children) {
         super(children);
     }
 
