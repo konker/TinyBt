@@ -40,4 +40,7 @@ public interface INode {
     NodeState success();
     NodeState failure();
     NodeState running();
+
+    //[FIXME: this is kind of an implementation detail?]
+    void _check();
 }

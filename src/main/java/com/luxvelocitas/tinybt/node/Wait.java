@@ -17,6 +17,7 @@ public class Wait extends AbstractNode implements INode {
 
     @Override
     public void reset() {
+        super.reset();
         mStartTime = (new Date()).getTime();
     }
 

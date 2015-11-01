@@ -9,6 +9,9 @@ public abstract class AbstractNode implements INode {
     protected List<INode> mChildren;
     protected int[] mChildrenIndex;
 
+    private boolean _mTopLevelInitCalled;
+    private boolean _mTopLevelResetCalled;
+
     public AbstractNode() {
         mChildren = new LinkedList<INode>();
     }
@@ -30,6 +33,24 @@ public abstract class AbstractNode implements INode {
         }
 
         reset();
+        _mTopLevelInitCalled = true;
+    }
+
+    // [FIXME: this should not be public]
+    @Override
+    public void _check() {
+        // [FIXME: better exception]
+        if (!_mTopLevelInitCalled) {
+            throw new RuntimeException("Must call super.init if you override init: " + getClass());
+        }
+        // [FIXME: better exception]
+        if (!_mTopLevelResetCalled) {
+            throw new RuntimeException("Must call super.reset if you override reset: " + getClass());
+        }
+
+        for (INode node : mChildren) {
+            node._check();
+        }
     }
 
     @Override
@@ -39,6 +60,7 @@ public abstract class AbstractNode implements INode {
         }
 
         running();
+        _mTopLevelResetCalled = true;
     }
 
     @Override
