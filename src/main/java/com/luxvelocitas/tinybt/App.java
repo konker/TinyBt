@@ -4,6 +4,7 @@ import com.luxvelocitas.datautils.DataBundle;
 import com.luxvelocitas.tinybt.exec.IExecutor;
 import com.luxvelocitas.tinybt.exec.SimpleExecutor;
 import com.luxvelocitas.tinybt.node.*;
+import com.luxvelocitas.tinybt.node.composite.Selector;
 import com.luxvelocitas.tinybt.node.composite.Sequence;
 import com.luxvelocitas.tinybt.node.decorator.Invert;
 import com.luxvelocitas.tinybt.node.decorator.Limit;
@@ -17,14 +18,17 @@ public class App {
     public static void main(String[] args) {
         // Set up the behaviour tree
         INode root = new Root(
-            new Invert(
-                new Repeat(-1,
-                    new Sequence(
-                        new WaitForVar("fooMs"),
-                        new Limit(4,
-                            new DummyTask("I AM DUMMY")
-                        )
-                     )
+            new Selector(
+                new FailureCondition(),
+                new Invert(
+                    new Repeat(-1,
+                        new Sequence(
+                            new WaitForVar("fooMs"),
+                            new Limit(2,
+                                new DummyTask("I AM DUMMY")
+                            )
+                         )
+                    )
                 )
             )
         );
