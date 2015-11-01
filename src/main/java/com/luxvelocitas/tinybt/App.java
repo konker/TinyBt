@@ -20,7 +20,7 @@ public class App {
             new Invert(
                 new Repeat(-1,
                     new Sequence(
-                        new Wait(1000),
+                        new WaitForVar("fooMs"),
                         new Limit(4,
                             new DummyTask("I AM DUMMY")
                         )
@@ -34,6 +34,7 @@ public class App {
 
         // Set up a context object
         DataBundle context = new DataBundle();
+        context.putLong("fooMs", 1500);
 
         // Execute the tree
         IExecutor executor = new SimpleExecutor(logger);
