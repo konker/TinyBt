@@ -22,7 +22,7 @@ public class App {
                     new Sequence(
                         new Wait(1000),
                         new Limit(4,
-                            new DummyTask()
+                            new DummyTask("I AM DUMMY")
                         )
                      )
                 )
