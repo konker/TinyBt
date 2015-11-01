@@ -18,7 +18,7 @@ public class LibraryTest {
 
         logger.info("START");
         INode<DataBundle> root = new Root<DataBundle>(
-            new Invert<>(
+            new Invert<DataBundle>(
                 new Sequence<DataBundle>(
                     new Wait<DataBundle>(1000),
                     new Task<DataBundle>() {

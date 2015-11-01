@@ -9,7 +9,7 @@ public class Limit<T> extends AbstractDecorator<T> implements INode<T> {
     protected int mMax;
     protected int mCountDown;
 
-    public Limit(INode<T> child, int max) {
+    public Limit(int max, INode<T> child) {
         super(child);
         mMax = max;
         mCountDown = mMax;

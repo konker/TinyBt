@@ -17,9 +17,9 @@ public class App {
         Logger logger = LoggerFactory.getLogger(App.class);
 
         logger.info("START");
-        INode<DataBundle> root =new Root<DataBundle>(
+        INode<DataBundle> root = new Root<DataBundle>(
             new Invert<DataBundle>(
-                new Repeat<DataBundle>(
+                new Repeat<DataBundle>(3,
                     new Sequence<DataBundle>(
                         new Wait<DataBundle>(1000),
                         new Task<DataBundle>() {
@@ -29,8 +29,8 @@ public class App {
                                 return success();
                             }
                         }
-                    ),
-                 3)
+                    )
+                 )
             )
         );
 

@@ -14,7 +14,7 @@ public class Repeat<T> extends AbstractDecorator<T> implements INode<T> {
         mMax = -1;
     }
 
-    public Repeat(INode<T> child, int max) {
+    public Repeat(int max, INode<T> child) {
         super(child);
         mMax = max;
     }
