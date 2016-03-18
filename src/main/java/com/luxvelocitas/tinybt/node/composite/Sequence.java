@@ -1,7 +1,7 @@
 package com.luxvelocitas.tinybt.node.composite;
 
 
-import com.luxvelocitas.datautils.DataBundle;
+import com.luxvelocitas.tinydatautils.DataBundle;
 import com.luxvelocitas.tinybt.node.AbstractNode;
 import com.luxvelocitas.tinybt.node.INode;
 import com.luxvelocitas.tinybt.node.NodeState;

@@ -93,6 +93,13 @@ public abstract class AbstractNode implements INode {
     }
 
     @Override
+    public void addChildren(INode... children) {
+        for (int i=0; i<children.length; i++) {
+            mChildren.add(children[i]);
+        }
+    }
+
+    @Override
     public NodeState getState() {
         return mState;
     }

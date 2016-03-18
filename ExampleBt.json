@@ -1,0 +1,92 @@
+{
+    "title": "A Behavior Tree",
+    "description": "",
+    "root": "1c5e5acc-bf77-4dec-8eec-0983af39df08",
+    "display": {
+        "camera_x": 800,
+        "camera_y": 338.5,
+        "camera_z": 1,
+        "x": -240,
+        "y": -192
+    },
+    "properties": {},
+    "nodes": {
+        "1c5e5acc-bf77-4dec-8eec-0983af39df08": {
+            "id": "1c5e5acc-bf77-4dec-8eec-0983af39df08",
+            "name": "Inverter",
+            "title": "Inverter",
+            "description": "",
+            "display": {
+                "x": -192,
+                "y": -112
+            },
+            "parameters": {},
+            "properties": {},
+            "child": "e676fa7c-8ccd-4829-9b9c-be9e2acfa06c"
+        },
+        "fd1c8b61-a531-4702-89dd-7e905cfe9831": {
+            "id": "fd1c8b61-a531-4702-89dd-7e905cfe9831",
+            "name": "Sequence",
+            "title": "Sequence",
+            "description": "",
+            "display": {
+                "x": 96,
+                "y": -128
+            },
+            "parameters": {},
+            "properties": {},
+            "children": [
+                "e27a52b9-b8a0-45b1-8cd6-87e3cd843211",
+                "faf79fae-1d6c-48a4-b9af-042c4ede91c6"
+            ]
+        },
+        "e27a52b9-b8a0-45b1-8cd6-87e3cd843211": {
+            "id": "e27a52b9-b8a0-45b1-8cd6-87e3cd843211",
+            "name": "Wait",
+            "title": "Wait",
+            "description": "",
+            "display": {
+                "x": 272,
+                "y": -160
+            },
+            "parameters": {
+                "milliseconds": 1000
+            },
+            "properties": {}
+        },
+        "faf79fae-1d6c-48a4-b9af-042c4ede91c6": {
+            "id": "faf79fae-1d6c-48a4-b9af-042c4ede91c6",
+            "name": "DummyTask",
+            "title": "DummyTask",
+            "description": "",
+            "display": {
+                "x": 272,
+                "y": -64
+            },
+            "parameters": {},
+            "properties": {}
+        },
+        "e676fa7c-8ccd-4829-9b9c-be9e2acfa06c": {
+            "id": "e676fa7c-8ccd-4829-9b9c-be9e2acfa06c",
+            "name": "Repeater",
+            "title": "Repeater",
+            "description": "",
+            "display": {
+                "x": -64,
+                "y": -64
+            },
+            "parameters": {
+                "maxLoop": 3
+            },
+            "properties": {},
+            "child": "fd1c8b61-a531-4702-89dd-7e905cfe9831"
+        }
+    },
+    "custom_nodes": [
+        {
+            "name": "DummyTask",
+            "title": "DummyTask",
+            "category": "action"
+        }
+    ]
+}

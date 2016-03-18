@@ -20,5 +20,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile fileTree(dir: '../TinyEvent/build/libs', include: '*.jar')
-    compile fileTree(dir: '../DataUtils/build/libs', include: '*.jar')
+    compile fileTree(dir: '../TinyDataUtils/build/libs', include: '*.jar')
 }

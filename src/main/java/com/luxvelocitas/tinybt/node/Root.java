@@ -1,7 +1,7 @@
 package com.luxvelocitas.tinybt.node;
 
 
-import com.luxvelocitas.datautils.DataBundle;
+import com.luxvelocitas.tinydatautils.DataBundle;
 import org.slf4j.Logger;
 
 public class Root extends AbstractNode implements INode {

@@ -1,6 +1,6 @@
 package com.luxvelocitas.tinybt.node.composite;
 
-import com.luxvelocitas.datautils.Util;
+import com.luxvelocitas.tinydatautils.Util;
 import com.luxvelocitas.tinybt.node.INode;
 
 

@@ -1,6 +1,6 @@
 package com.luxvelocitas.tinybt.node;
 
-import com.luxvelocitas.datautils.DataBundle;
+import com.luxvelocitas.tinydatautils.DataBundle;
 import org.slf4j.Logger;
 
 /**
@@ -12,7 +12,7 @@ import org.slf4j.Logger;
  *  - Decorator: a node which has one child, and which can transform the child's result
  *
  * A node can be in one of three states:
- *  - RUNNING: the node is still performing its action
+ *  - RUNNING: the node is still performing its task
  *  - SUCCESS: the node has succeeded
  *  - FAILURE: the node has failed
  *
@@ -25,7 +25,7 @@ public interface INode {
     void reset();
 
     /**
-     * Perform the action of the node
+     * Perform the task of the node
      *
      * @param context  The execution context for the node
      * @return  The node's state after completing what its task
@@ -33,6 +33,7 @@ public interface INode {
     NodeState tick(Logger logger, DataBundle context);
 
     void addChild(INode child);
+    void addChildren(INode... children);
 
     NodeState getState();
 
